@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { SplineScene } from "./ui/splite";
 import { useEffect, useState, useRef } from "react";
-import Lenis from "@studio-freight/lenis";
 
 const Hero = () => {
   const { scrollYProgress } = useScroll();
@@ -37,26 +36,6 @@ const Hero = () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
-    };
-  }, []);
-
-  // Initialize Lenis smooth scrolling
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      touchMultiplier: 2,
-    });
-
-    function raf(time: number): void {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
     };
   }, []);
 
