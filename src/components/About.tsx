@@ -119,7 +119,7 @@ const About = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="relative"
                 >
-                  <div className="absolute -left-10 top-0 w-5 h-5 rounded-full bg-purple-500 border-4 border-gray-900"></div>
+                  <div className="absolute -left-10.5 top-0 w-5 h-5 rounded-full bg-purple-500 border-4 border-gray-900"></div>
                   <div className="text-gray-400 text-sm mb-1">{exp.period}</div>
                   <h4 className="text-xl font-medium text-white">{exp.role}</h4>
                   <div className="text-blue-400 mb-2">{exp.company}</div>
