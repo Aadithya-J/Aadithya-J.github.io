@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { SplineScene } from "./ui/splite";
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
 
 const Hero = () => {
@@ -8,6 +8,37 @@ const Hero = () => {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9]);
   const heroY = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
+  
+  // State to track if Spline has been loaded and is in view
+  const [splineLoaded, setSplineLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Intersection observer to detect when hero section is in view
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        setIsInView(entry.isIntersecting);
+        
+        // Once we see it, mark it as loaded (for caching)
+        if (entry.isIntersecting) {
+          setSplineLoaded(true);
+        }
+      },
+      { threshold: 0.1 } // Trigger when at least 10% is visible
+    );
+    
+    observer.observe(sectionRef.current);
+    
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   // Initialize Lenis smooth scrolling
   useEffect(() => {
@@ -29,17 +60,25 @@ const Hero = () => {
     };
   }, []);
 
+  const sceneUrl = "https://prod.spline.design/SGI6G5WIqnp3l52n/scene.splinecode";
+
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section 
+      ref={sectionRef}
+      id="home" 
+      className="relative h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Background with gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-blue-950/20 to-black z-0"></div>
       
-      {/* 3D Scene */}
+      {/* 3D Scene - only render when in view or previously loaded */}
       <div className="absolute inset-0 z-0">
-        <SplineScene
-          scene="https://prod.spline.design/i8oRLMDVBaM9dNJX/scene.splinecode"
-          className="w-full h-full"
-        />
+        {(isInView || splineLoaded) && (
+          <SplineScene
+            scene={sceneUrl}
+            className="w-full h-full"
+          />
+        )}
       </div>
       
       {/* Content */}
@@ -61,7 +100,7 @@ const Hero = () => {
           transition={{ delay: 0.5 }}
           className="text-5xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500"
         >
-          Aadithya J
+          Aadithya Jayakaran
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -105,6 +144,7 @@ const Hero = () => {
           </svg>
         </a>
       </motion.div>
+      <div className="absolute bottom-0 right-0 w-128 md:w-48 lg:w-48 h-32 bg-black z-20" />
     </section>
   );
 };
