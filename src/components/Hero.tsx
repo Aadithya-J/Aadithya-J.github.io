@@ -40,7 +40,7 @@ const Hero = () => {
   }, []);
 
   const sceneUrl = "https://prod.spline.design/SGI6G5WIqnp3l52n/scene.splinecode";
-
+  //https://draft.spline.design/QKvmWATD2H3LIhi6/scene.splinecode
   return (
     <section 
       ref={sectionRef}
@@ -87,10 +87,9 @@ const Hero = () => {
           transition={{ delay: 0.7 }}
           className="text-xl md:text-2xl text-gray-300 mb-8 font-light tracking-wider"
         >
-          <span className="text-blue-400">Full Stack Developer</span> &{" "}
-          <span className="text-purple-400">Creative Technologist</span>
+          <span className="text-blue-400">Full Stack Developer</span>
         </motion.p>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

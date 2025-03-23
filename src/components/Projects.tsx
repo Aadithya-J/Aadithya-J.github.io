@@ -4,54 +4,31 @@ import { useState } from "react";
 
 const projects = [
   {
-    title: "Immersive Portfolio",
-    category: "Web Development",
-    description: "A personal portfolio website featuring 3D elements, animations, and interactive UI components.",
-    technologies: ["React", "Three.js", "Framer Motion", "Tailwind CSS"],
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop",
-    link: "#"
-  },
-  {
-    title: "E-Commerce Dashboard",
+    title: "Chatly - Enterprise Messaging Platform",
     category: "Web Application",
-    description: "A comprehensive admin dashboard for e-commerce platforms with real-time analytics and inventory management.",
-    technologies: ["Next.js", "TypeScript", "Chart.js", "Supabase"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-    link: "#"
+    description: "A full-stack messaging platform with real-time chat, group management, and user presence tracking.",
+    technologies: ["Next.js", "TypeScript", "Node.js", "Prisma", "PostgreSQL", "WebSocket"],
+    image: "/chatly.png", // Assuming the image is stored as public/chatly.jpg
+    link: "https://github.com/Aadithya-J/chatly"
   },
   {
-    title: "Virtual Reality Experience",
-    category: "3D / VR",
-    description: "An interactive VR experience for product showcasing and virtual tours.",
-    technologies: ["Three.js", "WebXR", "React Three Fiber", "Blender"],
-    image: "https://images.unsplash.com/photo-1617802690992-15d93263d3a9?q=80&w=2070&auto=format&fit=crop",
-    link: "#"
+    title: "AI-Powered Career Development Platform",
+    category: "AI Application",
+    description: "A career guidance platform using AI to generate personalized learning pathways and resume analysis.",
+    technologies: ["React.js", "Node.js", "Flask", "Firebase", "Gemini API"],
+    image: "/yatharth.png", // Assuming the image is stored as public/yatharth.jpg
+    link: "https://github.com/Aadithya-J/sih24"
   },
   {
-    title: "AI Content Generator",
-    category: "AI / Machine Learning",
-    description: "A tool that leverages AI to generate custom content for marketing and social media.",
-    technologies: ["Python", "TensorFlow", "OpenAI API", "React"],
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop",
-    link: "#"
+    title: "Collaborative Travel Planning Platform",
+    category: "Mobile Application",
+    description: "An iOS app for group travel planning with real-time collaboration and authentication.",
+    technologies: ["SwiftUI", "Firebase Authentication", "Cloud Firestore", "iOS SDK"],
+    image: "/cout.png", // Assuming the image is stored as public/cout.jpg
+    link: "https://github.com/Aadithya-J/Cout1"
   },
-  {
-    title: "Social Media App",
-    category: "Mobile Development",
-    description: "A cross-platform social networking application with real-time messaging and content sharing.",
-    technologies: ["React Native", "Firebase", "Node.js", "MongoDB"],
-    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=2074&auto=format&fit=crop",
-    link: "#"
-  },
-  {
-    title: "Blockchain Wallet",
-    category: "Blockchain",
-    description: "A secure cryptocurrency wallet with transaction tracking and portfolio management.",
-    technologies: ["Solidity", "Ethers.js", "React", "Web3.js"],
-    image: "https://images.unsplash.com/photo-1639762681057-408e52192e55?q=80&w=2070&auto=format&fit=crop",
-    link: "#"
-  }
 ];
+
 
 const categories = ["All", "Web Development", "Web Application", "3D / VR", "AI / Machine Learning", "Mobile Development", "Blockchain"];
 
@@ -66,7 +43,7 @@ const Projects = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="projects" className="py-32 px-4 relative overflow-hidden bg-black">
+    <section id="projects" className="px-4 relative overflow-hidden bg-black">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(91,33,182,0.1),transparent_70%)]"></div>
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-black to-transparent z-10"></div>

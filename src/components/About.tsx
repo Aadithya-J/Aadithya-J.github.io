@@ -1,34 +1,38 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Parallax } from 'react-scroll-parallax';
 import Skills from './Skills';
-
-const experiences = [
-  {
-    period: "2021 - Present",
-    role: "Senior Frontend Developer",
-    company: "Tech Innovations Inc.",
-    description: "Leading the development of interactive web applications using React, TypeScript, and Three.js. Implemented advanced animations and optimized performance across all platforms."
-  },
-  {
-    period: "2019 - 2021",
-    role: "Full Stack Developer",
-    company: "Digital Solutions Lab",
-    description: "Built scalable web services using Node.js and contributed to frontend development with React. Worked on real-time data visualization and collaborative editing features."
-  },
-  {
-    period: "2017 - 2019",
-    role: "Junior Developer",
-    company: "Creative Tech Studios",
-    description: "Collaborated on various web projects and gained experience in modern JavaScript frameworks. Focused on responsive design and cross-browser compatibility."
-  }
-];
+const experiences : any = []
+// const experiences = [
+//   {
+//     period: "2021 - Present",
+//     role: "Senior Frontend Developer",
+//     company: "Tech Innovations Inc.",
+//     description: "Leading the development of interactive web applications using React, TypeScript, and Three.js. Implemented advanced animations and optimized performance across all platforms."
+//   },
+//   {
+//     period: "2019 - 2021",
+//     role: "Full Stack Developer",
+//     company: "Digital Solutions Lab",
+//     description: "Built scalable web services using Node.js and contributed to frontend development with React. Worked on real-time data visualization and collaborative editing features."
+//   },
+//   {
+//     period: "2017 - 2019",
+//     role: "Junior Developer",
+//     company: "Creative Tech Studios",
+//     description: "Collaborated on various web projects and gained experience in modern JavaScript frameworks. Focused on responsive design and cross-browser compatibility."
+//   }
+// ];
 
 const education = [
   {
-    period: "2013 - 2017",
-    degree: "Bachelor of Science in Computer Science",
-    institution: "University of Technology",
-    description: "Specialized in web technologies and interactive media. Graduated with honors."
+    period: "2023 - present",
+    degree: "Bachelor of Technology in Computer Science Engineering",
+    institution: "Vellore Institute of Technology",
+  },
+  {
+    period: "2023 - present",
+    degree: "Bachelor of Science in Data Science",
+    institution: "Indian Institute of Technology"
   }
 ];
 
@@ -96,43 +100,45 @@ const About = () => {
         {/* Skills Section - Full Width */}
         <Skills />
         
-        {/* Experience and Education - Two Columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-24">
-          {/* Left Column - Experience */}
-          <div>
-            <motion.h3 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-2xl font-semibold text-purple-400 mb-6"
-            >
-              Experience
-            </motion.h3>
-            <div className="relative border-l-2 border-gray-700 pl-8 space-y-8">
-              {experiences.map((exp, index) => (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative"
-                >
-                  <div className="absolute -left-10.5 top-0 w-5 h-5 rounded-full bg-purple-500 border-4 border-gray-900"></div>
-                  <div className="text-gray-400 text-sm mb-1">{exp.period}</div>
-                  <h4 className="text-xl font-medium text-white">{exp.role}</h4>
-                  <div className="text-blue-400 mb-2">{exp.company}</div>
-                  <p className="text-gray-300">{exp.description}</p>
-                </motion.div>
-              ))}
+        {/* Experience and Education Section */}
+        <div className={`grid grid-cols-1 ${experiences.length > 0 ? 'lg:grid-cols-2' : ''} gap-16 mt-24`}>
+          {/* Experience Section (only shown when experiences exist) */}
+          {experiences.length > 0 && (
+            <div>
+              <motion.h3 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="text-2xl font-semibold text-purple-400 mb-6"
+              >
+                Experience
+              </motion.h3>
+              <div className="relative border-l-2 border-gray-700 pl-8 space-y-8">
+                {experiences.map((exp : any, index : any) => (
+                  <motion.div 
+                    key={index}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative"
+                  >
+                    <div className="absolute -left-10.5 top-0 w-5 h-5 rounded-full bg-purple-500 border-4 border-gray-900"></div>
+                    <div className="text-gray-400 text-sm mb-1">{exp.period}</div>
+                    <h4 className="text-xl font-medium text-white">{exp.role}</h4>
+                    <div className="text-blue-400 mb-2">{exp.company}</div>
+                    <p className="text-gray-300">{exp.description}</p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
           
-          {/* Right Column - Education */}
-          <div>
+          {/* Education Section - Will be centered when no experiences */}
+          <div className={experiences.length === 0 ? 'max-w-lg mx-auto' : ''}>
             <motion.h3 
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: experiences.length > 0 ? 20 : 0 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
@@ -143,8 +149,8 @@ const About = () => {
             {education.map((edu, index) => (
               <motion.div 
                 key={index}
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: experiences.length > 0 ? 30 : 0, y: experiences.length > 0 ? 0 : 30 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="mb-8 p-6 bg-gray-800/30 backdrop-blur-sm rounded-lg border-l-4 border-blue-500"
@@ -152,7 +158,6 @@ const About = () => {
                 <div className="text-gray-400 text-sm mb-1">{edu.period}</div>
                 <h4 className="text-xl font-medium text-white">{edu.degree}</h4>
                 <div className="text-blue-400 mb-2">{edu.institution}</div>
-                <p className="text-gray-300">{edu.description}</p>
               </motion.div>
             ))}
           </div>
