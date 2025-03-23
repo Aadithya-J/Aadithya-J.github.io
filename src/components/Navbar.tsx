@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
   return (
@@ -17,10 +17,16 @@ const Navbar = () => {
         transition={{ delay: 0.3 }}
         className="hidden md:flex gap-8"
       >
-        {["Home", "About", "Projects", "Contact"].map((item) => (
+        {['Home', 'About', 'Projects', 'Contact'].map((item) => (
           <a
             key={item}
-            href={`#${item.toLowerCase()}`}
+            href={
+              item === 'Contact'
+                ? 'mailto:aadithyajayakaran@gmail.com'
+                : `#${item.toLowerCase()}`
+            }
+            target={item === 'Contact' ? '_blank' : '_self'}
+            rel={item === 'Contact' ? 'noopener noreferrer' : undefined}
             className="hover:text-blue-400 transition-colors relative group"
           >
             {item}

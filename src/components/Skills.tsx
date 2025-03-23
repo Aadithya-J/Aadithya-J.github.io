@@ -1,69 +1,80 @@
-import { motion } from "framer-motion";
-import { SiReact, SiTypescript, SiNodedotjs, SiNextdotjs, 
-         SiThreedotjs, SiGraphql, SiTailwindcss, SiJavascript, 
-         SiMongodb, SiGit, SiPython, SiDocker } from "react-icons/si";
+import { motion } from 'framer-motion';
+import {
+  SiReact,
+  SiTypescript,
+  SiNodedotjs,
+  SiNextdotjs,
+  SiThreedotjs,
+  SiGraphql,
+  SiTailwindcss,
+  SiJavascript,
+  SiMongodb,
+  SiGit,
+  SiPython,
+  SiDocker,
+} from 'react-icons/si';
 
 const skills = [
   {
-    name: "React",
+    name: 'React',
     icon: SiReact,
-    color: "text-[#61DAFB]"
+    color: 'text-[#61DAFB]',
   },
   {
-    name: "TypeScript",
+    name: 'TypeScript',
     icon: SiTypescript,
-    color: "text-[#3178C6]"
+    color: 'text-[#3178C6]',
   },
   {
-    name: "Node.js",
+    name: 'Node.js',
     icon: SiNodedotjs,
-    color: "text-[#339933]"
+    color: 'text-[#339933]',
   },
   {
-    name: "Next.js",
+    name: 'Next.js',
     icon: SiNextdotjs,
-    color: "text-white"
+    color: 'text-white',
   },
   {
-    name: "Three.js",
+    name: 'Three.js',
     icon: SiThreedotjs,
-    color: "text-white"
+    color: 'text-white',
   },
   {
-    name: "GraphQL",
+    name: 'GraphQL',
     icon: SiGraphql,
-    color: "text-[#E10098]"
+    color: 'text-[#E10098]',
   },
   {
-    name: "TailwindCSS",
+    name: 'TailwindCSS',
     icon: SiTailwindcss,
-    color: "text-[#06B6D4]"
+    color: 'text-[#06B6D4]',
   },
   {
-    name: "JavaScript",
+    name: 'JavaScript',
     icon: SiJavascript,
-    color: "text-[#F7DF1E]"
+    color: 'text-[#F7DF1E]',
   },
   {
-    name: "MongoDB",
+    name: 'MongoDB',
     icon: SiMongodb,
-    color: "text-[#47A248]"
+    color: 'text-[#47A248]',
   },
   {
-    name: "Git",
+    name: 'Git',
     icon: SiGit,
-    color: "text-[#F05032]"
+    color: 'text-[#F05032]',
   },
   {
-    name: "Python",
+    name: 'Python',
     icon: SiPython,
-    color: "text-[#3776AB]"
+    color: 'text-[#3776AB]',
   },
   {
-    name: "Docker",
+    name: 'Docker',
     icon: SiDocker,
-    color: "text-[#2496ED]"
-  }
+    color: 'text-[#2496ED]',
+  },
 ];
 
 const Skills = () => {
@@ -92,35 +103,39 @@ const Skills = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ 
+              transition={{
                 duration: 0.5,
                 delay: index * 0.1,
-                type: "spring",
-                stiffness: 100
+                type: 'spring',
+                stiffness: 100,
               }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.1,
-                transition: { type: "spring", stiffness: 400, damping: 10 }
+                transition: { type: 'spring', stiffness: 400, damping: 10 },
               }}
               className="flex flex-col items-center group"
             >
-              <div className="relative w-16 h-16 md:w-20 md:h-20 flex items-center justify-center
+              <div
+                className="relative w-16 h-16 md:w-20 md:h-20 flex items-center justify-center
                             bg-gray-800/50 rounded-xl backdrop-blur-sm
                             shadow-lg group-hover:shadow-xl
                             group-hover:shadow-blue-500/20
-                            transition-all duration-300 ease-out">
-                <skill.icon className={`w-8 h-8 md:w-10 md:h-10 ${skill.color} 
+                            transition-all duration-300 ease-out"
+              >
+                <skill.icon
+                  className={`w-8 h-8 md:w-10 md:h-10 ${skill.color} 
                                     transition-transform duration-300 ease-out
-                                    group-hover:scale-110`} />
-                
-                {/* Glow effect */}
-                <div className={`absolute inset-0 -z-10 rounded-xl opacity-0
+                                    group-hover:scale-110`}
+                />
+
+                <div
+                  className={`absolute inset-0 -z-10 rounded-xl opacity-0
                                 group-hover:opacity-20 transition-opacity duration-300
-                                blur-xl bg-gradient-to-r from-blue-500 to-purple-500`}>
-                </div>
+                                blur-xl bg-gradient-to-r from-blue-500 to-purple-500`}
+                ></div>
               </div>
-              
-              <motion.span 
+
+              <motion.span
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.2 + index * 0.1 }}
