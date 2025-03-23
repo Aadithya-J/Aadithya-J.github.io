@@ -72,27 +72,27 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-gray-300 text-lg leading-relaxed"
+              className="py-4 text-gray-300 text-lg leading-relaxed"
             >
-              I'm a <span className="text-blue-400 font-medium">passionate developer</span> and <span className="text-purple-400 font-medium">creative technologist</span> with a focus on building immersive digital experiences that combine aesthetic design with powerful functionality.
+              Hey, I'm Aadithya! I'm a <span className="text-blue-400 font-medium">Computer Science student</span> at VIT Chennai, also pursuing a <span className="text-purple-400 font-medium">Data Science degree</span> at IIT Madras. I love building things that are <span className="text-blue-400 font-medium">fast, scalable, and actually useful</span>—whether it's backend-heavy systems, full-stack applications, or something entirely new.
             </motion.p>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-gray-300 text-lg leading-relaxed"
+              className="py-4 text-gray-300 text-lg leading-relaxed"
             >
-              With over <span className="text-blue-400 font-medium">5 years of experience</span> in web development, I've cultivated a skill set that spans the entire development stack, from crafting responsive UIs to architecting robust backends. I'm particularly enthusiastic about animation, 3D graphics, and creating interfaces that delight users.
+              I'm also into <span className="text-purple-400 font-medium">competitive programming</span>, always looking for new challenges to solve. Whether it's <span className="text-blue-400 font-medium">optimizing algorithms</span>, designing efficient architectures, or experimenting with new tech, I enjoy the process of breaking things down and making them better.
             </motion.p>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-gray-300 text-lg leading-relaxed"
+              className="py-4 text-gray-300 text-lg leading-relaxed"
             >
-              My approach combines <span className="text-purple-400 font-medium">technical expertise</span> with an eye for <span className="text-blue-400 font-medium">design and usability</span>. I believe the best digital products are those that not only function flawlessly but also engage users on an emotional level.
+              Outside of coding, you'll probably find me <span className="text-blue-400 font-medium">exploring new ideas</span>, <span className="text-purple-400 font-medium">competing in coding contests</span>, or just geeking out over interesting problems.
             </motion.p>
           </div>
         </motion.div>
