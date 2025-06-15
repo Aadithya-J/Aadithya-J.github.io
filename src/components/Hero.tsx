@@ -36,7 +36,7 @@ const Hero = () => {
     };
   }, []);
 
-  const sceneUrl = 'https://prod.spline.design/SGI6G5WIqnp3l52n/scene.splinecode';
+  const sceneUrl = '/scene.splinecode';
   //https://draft.spline.design/QKvmWATD2H3LIhi6/scene.splinecode
   return (
     <section
